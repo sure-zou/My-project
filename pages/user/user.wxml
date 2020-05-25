@@ -1,0 +1,150 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='user' style="margin-bottom:120rpx;">
+   <view class='header  acea-row row-between-wrapper'>
+      <view class='picTxt acea-row row-between-wrapper'>
+         <view class='pictrue' data-url='/pages/user_info/index' bindtap='goPages'><image src='{{userInfo.avatar}}'></image></view>
+         <view class='text'>
+            <view class='acea-row row-middle'>
+               <view class='name line1' data-url='/pages/user_info/index' bindtap='goPages'>{{userInfo.uid ? userInfo.nickname : '请点击授权'}}</view>
+               <view class='member acea-row row-middle' wx:if="{{userInfo.vip_name}}" bindtap='goboss'>
+               <!-- data-url='/pages/user_vip/index'  -->
+               <image src='{{userInfo.vip_icon}}'></image>{{userInfo.vip_name}}</view>
+                 <view wx:if="{{userInfo.tg_code !=''}} &&  userInfo.level>0">邀请码ID:{{userInfo.tg_code}}</view>
+            </view>
+            <view class='id' data-url='/pages/user_info/index' bindtap='goPages' wx:if="{{userphone !=''}}">ID：{{userInfo.uid || 0}} <text style="padding-left:.5rem">手机号:{{userphone}}</text><text class='iconfont icon-bianji1'></text>
+            </view>
+               <view wx:if="{{userInfo.uid && userphone==''}}" style="margin-top:10rpx;" >
+               <button class="binding" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" >获取手机号</button>
+            </view>
+         </view>
+      </view>
+      <navigator class="qd" url="/pages/user_sgin/index">
+         <text class='iconfont icon-bianji1'></text><text>签到</text>
+      </navigator>
+   </view>
+   <view class='wrapper'>
+       <view class='nav' >
+         <view class="acea-row row-between-wrapper nav2"wx:if="{{userInfo.is_hide_examine==0}}" >
+            <view class=" acea-row text" >
+                 <navigator url="/pages/news_details/index?id=4"> <image src='/images/wen.png' ></image></navigator>
+              <text  bindtap="getcash">{{getlist.ly}}:</text>
+              </view>
+              <view class='num' bindtap="getcash">
+                <text>{{userInfo.brokerage_commission|| 0}}</text>
+                <text class='iconfont icon-jiantou'></text>
+              </view>
+         </view>
+          <view class="acea-row row-between-wrapper nav2"  wx:if="{{userInfo.is_hide_examine==0}}">
+            <view class="acea-row text">
+             <navigator url="/pages/news_details/index?id=4"> <image src='/images/wen.png' ></image></navigator>
+              <text bindtap="getcash">{{getlist.lb}}:</text>
+              </view>
+              <view class='num' bindtap="getcash">
+                <text>{{userInfo.brokerage_bonus || 0}}</text>
+                <text class='iconfont icon-jiantou'></text>
+              </view>
+         </view>
+         <view class="acea-row row-between-wrapper nav2 nav4"  wx:if="{{userInfo.is_hide_examine==0}}" >
+            <view class="acea-row text">
+                 <navigator url="/pages/news_details/index?id=4"> <image src='/images/wen.png' ></image></navigator>
+              <text bindtap="getcash">{{getlist.lf}}:</text>
+            </view>
+              <view class='num' bindtap="getcash">
+              <text>{{userInfo.brokerage_abonus|| 0 }}</text>
+              <text class='iconfont icon-jiantou'></text>
+              </view>
+         </view>
+         <view class="acea-row row-middle nav3" >
+             <view class='item' data-url='/pages/user_gocash/index' bindtap='goPages'>
+                <view class='num'>{{numlist|| 0}}</view>
+                <view class="num2">总计收益</view>
+            </view>
+            <view class='item' data-url='/pages/user_coupon/index' bindtap='goPages'>
+                <view class='num'>{{userInfo.couponCount || 0}}</view>
+                  <view class="num2">优惠券</view>
+            </view>
+
+            <view class='item'  data-url='/pages/user_integral/index' bindtap='goPages'>
+                <view class='num'>{{userInfo.integral || 0}}</view>
+                <view class="num2">当前积分</view>
+            </view>
+        </view>
+      </view>
+      <view class='myOrder'>
+        <view class='title acea-row row-between-wrapper'>
+           <view>我的订单</view>
+           <view class='allOrder' data-url='/pages/order_list/index' bindtap='goPages'>全部订单<text class='iconfont icon-jiantou'></text></view>
+        </view>
+        <view class='orderState acea-row row-middle'>
+           <view class='item' data-url='/pages/order_list/index?status=0' bindtap='goPages'>
+              <view class='pictrue'>
+                <image src='/images/daifuk.png'></image>
+                <text class="order-status-num" wx:if="{{orderStatusNum.unpaid_count > 0}}">{{ orderStatusNum.unpaid_count }}</text>
+              </view>
+              <view>待付款</view>
+           </view>
+            <view class='item' data-url='/pages/order_list/index?status=1' bindtap='goPages'>
+              <view class='pictrue'>
+                <image src='/images/daifh.png'></image>
+                <text class="order-status-num" wx:if="{{orderStatusNum.unshipped_count > 0}}">{{ orderStatusNum.unshipped_count }}</text>
+              </view>
+              <view>待发货</view>
+           </view>
+            <view class='item' data-url='/pages/order_list/index?status=2' bindtap='goPages'>
+              <view class='pictrue'>
+              <image src='/images/daish.png'></image>
+              <text class="order-status-num" wx:if="{{orderStatusNum.received_count > 0}}">{{ orderStatusNum.received_count }}</text>
+              </view>
+              <view>待收货</view>
+           </view>
+            <view class='item' data-url='/pages/order_list/index?status=3' bindtap='goPages'>
+              <view class='pictrue'>
+              <image src='/images/daipj.png'></image>
+              <text class="order-status-num" wx:if="{{orderStatusNum.evaluated_count > 0}}">{{ orderStatusNum.evaluated_count }}</text>
+              </view>
+              <view>待评价</view>
+           </view>
+            <view class='item' data-url='/pages/user_return_list/index' bindtap='goPages'>
+              <view class='pictrue'>
+              <image src='/images/tuikuang.png'></image>
+              <text class="order-status-num" wx:if="{{orderStatusNum.refund_count > 0}}">{{ orderStatusNum.refund_count }}</text>
+              </view>
+              <view>售后/退款</view>
+           </view>
+        </view>
+      </view>
+      <view class='myService'>
+         <view class='title acea-row row-middle'>常用功能</view>
+         <view class='serviceList '>
+            <view class='item' wx:for="{{MyMenus}}" wx:key  data-url='{{item.url}}' wx:if="{{item.url!='#' && item.url!='/pages/admin/index' && item.url!='/pages/service/index'}}" bindtap='goPages' >
+             <view class="acea-row row-between-wrapper">
+                 <view class='pictrue'><image src='{{item.pic}}'></image></view>
+                 <view>{{item.name}}</view>
+             </view>  
+             <view> <text class='iconfont icon-jiantou' style="font-size:28rpx"></text></view>
+          </view>
+
+            <button class='item acea-row row-between-wrapper' open-type='contact' hover-class='none' style="border: 0;">
+             <view class="acea-row row-between-wrapper">
+                <view class='pictrue'>
+                <image src='/images/customer.png'></image>
+                </view>
+                <view>联系客服</view>
+              </view>
+                 <view> 
+                 <text class='iconfont icon-jiantou' style="font-size:28rpx"></text>
+                 </view>
+            </button>
+         </view>
+      </view>
+   </view>
+   <image src='/images/support.png' class='support'></image>
+</view> 
+<view class='box-shaw {{isshow==1 ? "on":""}}' data-isshow='1' bindtap="goshow" >
+    <view class="box-tan">
+       <text> 等级说明</text>
+       <view class="cont">{{userInfo.explain}}</view>
+    </view>
+</view>
+<authorize bind:onLoadFun='onLoadFun' isGoIndex='{{isGoIndex}}' iShidden="{{iShidden}}" isAuto="{{isAuto}}"></authorize>
+<tabnav activeIdx="{{activeIdx}}"></tabnav>

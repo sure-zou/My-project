@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+      "tabnav": "/components/tabnav/index",
+    "goodList": "/components/goodList/index",
+    "promotionGood": "/components/promotionGood/index",
+    "coupon-window": "/components/coupon-window/index",
+    "home": "/components/home/index"
+  }
+}

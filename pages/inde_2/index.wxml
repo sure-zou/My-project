@@ -1,0 +1,16 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class="">
+<view class="index_post"><image src="{{driver_image}}"/></view>
+<form bindsubmit="formSubmit" report-submit='true'>
+    <view class="index_input acea-row ">
+       <text>姓名：</text>
+           <input placeholder="填写您的姓名" name="nickname" placeholder-class='placeholder'></input>
+    </view>
+     <view  class="index_input acea-row  ">
+       <text>电话：</text>
+           <input placeholder="填写您的电话" name="phone" placeholder-class='placeholder'></input>
+    </view>
+       <button class="confirmBnt bg-color index_input" formType="submit">提交</button>
+     </form>
+</view>
+<tabnav activeIdx="{{activeIdx}}"></tabnav>

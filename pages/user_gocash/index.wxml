@@ -1,0 +1,70 @@
+<!--pages/user_gocash/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar>
+<view class="cash">
+ <view  class="cash_list acea-row row-between-wrapper">
+       <view>
+             <navigator class="name"  url='/pages/user_spread_money/index?type=3' >
+            <view class="text">可提{{getlist.ys}}</view>
+            <view class="text2">剩余￥{{userInfo.month_commission_kt}}</view>
+       </navigator>
+        <navigator class="name"  url='/pages/user_spread_money/index?type=3' >
+              <view class="text">未结算{{getlist.ys}}</view>
+              <view class="text2">剩余￥{{userInfo.month_commission }}</view>
+        </navigator>
+       </view>
+        <view class="btn bg-color"  bindtap="gocash">立即提现</view>
+</view>
+<view  class="cash_list acea-row row-between-wrapper">
+   <view>
+      <navigator class="name" url='/pages/user_spread_money/index?type=5' >
+        
+            <view class="text">可提{{getlist.bs}}</view>
+            <view class="text2">剩余:￥{{userInfo.month_bonus_kt }}</view>
+        </navigator>
+      <navigator class="name" url='/pages/user_spread_money/index?type=5' >
+        
+            <view class="text">未结算{{getlist.bs}}</view>
+            <view class="text2">剩余:￥{{userInfo.month_bonus}}</view>
+        </navigator>
+   </view>  
+
+        <view class="btn bg-color"  bindtap="gocash">立即提现</view>
+  </view>
+    <view  class="cash_list acea-row row-between-wrapper">
+        <view>
+              <navigator class="name"
+    url='/pages/user_spread_money/index?type=6' 
+      >
+         <view class="text">可提{{getlist.fs}}</view>
+            <view class="text2">剩余￥{{userInfo.month_abonus_kt}}</view>
+             </navigator>
+              <navigator class="name"
+    url='/pages/user_spread_money/index?type=6' 
+      >
+            <view class="text">未结算{{getlist.fs}}</view>
+            <view class="text2">剩余￥{{userInfo.month_abonus }}</view>
+             </navigator>
+        </view> 
+      
+        <view class="btn bg-color" bindtap="gocash">立即提现</view>
+      </view>
+          <navigator class='item2 acea-row row-between-wrapper'                  url='/pages/user_money/index' >
+           <view class="num2 acea-row "><image src="/images/daifuk.png"role="img"></image><text >我的余额</text></view>
+         <view class='num'>{{userInfo.now_money || 0}} <text class="iconfont icon-jiantou"></text></view>
+           </navigator>
+</view> 
+  <view class='news acea-row row-between-wrapper'>
+       <view class='pictrue'><image src='/images/gg.png'></image></view>
+       <view class='swiperTxt'>
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="2500" duration="500" vertical="true" circular="true">
+                    <swiper-item catchtouchmove='catchTouchMove'>
+                        <navigator class='acea-row row-between-wrapper' hover-class='none' url="/pages/tixian_article/index?id=4">
+                            <view class='text acea-row row-between-wrapper'>
+                                <view class='newsTitle line1'>{{withdrawal_notice}}</view>
+                            </view>
+                            <view class='iconfont icon-xiangyou'></view>
+                        </navigator>
+                    </swiper-item>
+              </swiper> 
+       </view>
+</view>

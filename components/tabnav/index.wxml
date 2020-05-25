@@ -1,0 +1,9 @@
+
+ <view class='tabbar'>
+  <view  class='tabbar-item' wx:for='{{navList}}' wx:key='{{item.url}}'  data-path='{{item.url}}' data-idx='{{index}}' bindtap="switchTab" data-index="{{index}}">
+ <view class='tabbar-item-icon'>
+      <image src='{{activeIdx === item.sign ? item.image : item.image1}}'></image>
+    </view>
+    <view class='tabbar-item-text {{activeIdx === item.sign ? "active" : ""}}'>{{item.name}}</view>
+  </view>
+</view> 

@@ -1,0 +1,34 @@
+page{background-color:#fff!important;}
+.newsList .swiper{width:100%;position:relative;box-sizing:border-box;margin-top: 70rpx;
+}
+.newsList .swiper swiper{width:100%;height:300rpx;position:relative;}
+.newsList .swiper .slide-image{width:100%;height: 300rpx;}
+.newsList .swiper .wx-swiper-dot{width:12rpx;height:12rpx;border-radius:0;transform: rotate(-45deg);transform-origin: 0 100%;}
+.newsList .swiper .wx-swiper-dot~.wx-swiper-dot{margin-left:5rpx;}
+.newsList .swiper .wx-swiper-dots.wx-swiper-dots-horizontal{margin-bottom:-20rpx;}
+.newsList .nav{padding: 18rpx 30rpx;
+width: 100%;
+
+white-space: nowrap;
+box-sizing: border-box;
+background: #FF433B;
+color: #ffffff;
+position: fixed;
+top: 145rpx;
+left: 0;
+z-index: 99999;
+}
+.newsList .nav .item{display:inline-block;font-size:32rpx;color:#ffffff;}
+.newsList .nav .item.on{color:#ffffff;font-weight: 700}
+.newsList .nav .item~.item{margin-left:46rpx;}
+.newsList .nav .item .line{width:24rpx;height:4rpx;border-radius:2rpx;margin:10rpx auto 0 auto;background: #ffffff !important;
+}
+.newsList .list .item{margin:0 30rpx;border-bottom:1rpx solid #f0f0f0;padding:35rpx 0;}
+.newsList .list .item .pictrue{width:210rpx;height:210rpx;}
+.newsList .list .item .pictrue image{width:100%;height:100%;border-radius:6rpx;}
+.newsList .list .item .text{width:65%;height:156rpx;font-size:24rpx;color:#999;}
+.newsList .list .item .text .name{font-size:30rpx;color:#282828;}
+.newsList .list .item .picList .pictrue{width:335rpx;height:210rpx;margin-top:30rpx;}
+.newsList .list .item .picList.on .pictrue{width:217rpx;height:136rpx;}
+.newsList .list .item .picList .pictrue image{width:100%;height:100%;border-radius:6rpx;}
+.newsList .list .item .time{text-align:right;font-size:24rpx;color:#999;margin-top:22rpx;}

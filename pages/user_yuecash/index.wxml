@@ -1,0 +1,45 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='cash-withdrawal'>
+ <view class='news acea-row row-between-wrapper'>
+       <view class='pictrue'><image src='/images/gg.png'></image></view>
+       <view class='swiperTxt'>
+            <swiper  autoplay="{{autoplay}}" interval="2500" duration="{{duration}}"  circular="true">
+                    <swiper-item catchtouchmove='catchTouchMove'>
+                        <navigator class='acea-row row-between-wrapper' hover-class='none'>
+                            <view class='text acea-row row-between-wrapper'>
+                                <view class='newsTitle line1'>{{withdrawal_notice}}</view>
+                            </view>
+                            <view class='iconfont icon-xiangyou'></view>
+                        </navigator>
+                    </swiper-item>
+              </swiper> 
+       </view>
+</view>
+   <view class='nav acea-row'>
+        <view wx:for='{{navList}}' wx:key='index' class='item font-color acea-row' data-current="{{index}}"  bindtap="swichNav">
+            <view class='line bg-color {{currentTab==index ? "on":""}}'></view>
+            <view class='iconfont {{item.icon}} {{currentTab==index ? "on":""}}'></view>
+            <view>{{item.name}}</view>
+        </view>
+    </view>
+     <view class='wrapper'>
+        <view hidden='{{currentTab != 0}}' class='list'>
+          <form bindsubmit="subCash" report-submit='true'>
+              <view class='item acea-row row-between-wrapper'>
+                 <view class='name'>账号</view>
+                 <view class='input'><input placeholder='请填写您的支付宝账号' placeholder-class='placeholder' name="name"></input></view>
+             </view>
+              <view class='item acea-row row-between-wrapper'>
+                 <view class='name'>提现</view>
+                 <view class='input'><input placeholder='最低提现金额{{minPrice}}' placeholder-class='placeholder' name="money" type='digit'></input></view>
+             </view>
+           <view class='tip' wx:if="{{type_money==0}}">当前可提现金额: {{month_commission_kt }}</view>
+              <view class='tip' wx:if="{{type_money==1}}">当前可提现金额: {{month_bonus_kt}}</view>
+               <view class='tip' wx:if="{{type_money==2}}">当前可提现金额: {{month_abonus_kt}}</view>
+                   <view class='tip' wx:if="{{type_money==3}}">当前可提现金额: {{userInfo.now_money}}</view>
+             <button formType="submit" class='bnt bg-color'>提现</button>
+          </form>   
+        </view>
+    </view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>

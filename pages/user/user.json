@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+      "tabnav": "/components/tabnav/index",
+    "authorize": "/components/authorize/authorize",
+    "generalWindow": "/components/general-window/index"
+  },
+  "navigationBarTextStyle": "white"
+}

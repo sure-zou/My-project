@@ -1,0 +1,102 @@
+
+<!--pages/share_index/index.wxml-->
+<navbar parameter='{{parameter}}'></navbar>
+<view class="share_index">
+    <view class="share_banner">
+        <image src="{{shareCont.moments}}"></image>
+    </view>
+    <view class="acea-row row-between-wrapper daka">
+      <view class="share_daka">累计打卡：{{shareCont.up_clock_num}}</view>
+    <view class="share_daka" bindtap="getShareclock_in">立即打卡</view>
+    </view>
+    <view class="product-con" >
+      <view class='notice acea-row row-middle'>
+         <view class='num font-color'>
+            <text class='iconfont icon-laba'></text>
+            已分享{{dakanum}}人<text class='line'>|</text>
+         </view>
+         <view class='swiper'>
+            <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="2500" duration="500" vertical="true" circular="true">
+                <block >
+                   <swiper-item>
+                      <view class='line1'>叫上你的朋友一起来打卡分享吧</view>
+                   </swiper-item>
+                </block>
+            </swiper> 
+         </view>
+      </view>
+      <view class='assemble' wx:if='{{shareCont.up_clock_num >= 1}}'>
+         <view class='item acea-row row-between-wrapper'  wx:for='{{clockList}}' wx:key='index'  >
+            <view  class="">
+                <view class='pictxt acea-row row-between-wrapper'>
+                  <view class='pictrue'><image src='{{item.user.avatar}}'></image></view>
+               <view class='text line1'>{{item.user.nickname}}</view>
+                </view>
+               <view class='time'>
+                   <view >下单号： <text>{{item.order_id}}</text></view>
+                <view>下单时间：<text> {{item.pay_time}}</text></view>
+               </view>
+                
+            </view>
+            <view class='right acea-row row-middle' style="width: 26%;">
+                <navigator hover-class='none' url='/pages/user_spread_code/index'  class='spellBnt'>去分享<text class='iconfont icon-jiantou'></text></navigator>
+            </view>
+         </view>
+         <view class='more' bindtap='showAll' wx:if="{{pink.length >= AllIndex}}">查看更多<text class='iconfont icon-xiangxia'></text></view>
+         <view class='more' bindtap='hideAll' wx:elif="{{pink.length >= AllIndex && !pink.length}}">收起<text class='iconfont icon-xiangxia'></text></view>
+      </view>
+    </view>
+
+    <view class="share_cont">
+       <view class="title">活动介绍</view>
+        <view class="cont">
+               {{shareCont.events_text}}
+        </view>
+    </view>
+       <view class='signTip acea-row row-center-wrapper {{active==true?"on":""}}'>
+      <view class='signTipLight loadingpic'></view>
+      <view class='signTipCon'>
+        <view class='state'>打卡成功</view>
+        <view class='integral'>累计打卡：{{shareCont.up_clock_num}}</view>
+        <view class=' acea-row row-between-wrapper' >
+                <view class='signTipBnt' bindtap='close'>不分享了</view>
+          <view class='signTipBnt' bindtap='listenerActionSheet'>分享</view>
+        </view>
+      </view>
+    </view>
+       <view class='signTip acea-row row-center-wrapper {{active2==true?"on":""}}'>
+         <view class='signTipCon signTipCon2' >
+        <view class='state'>活动已结束</view>
+        <view class=' acea-row row-between-wrapper' >
+                <view class='signTipBnt' bindtap='close'>再看看</view>
+          <view class='signTipBnt' bindtap="getback">返回</view>
+        </view>
+      </view>
+    </view>
+    <view class='signTip acea-row row-center-wrapper {{active3==true?"on":""}}'
+    wx:if="{{shareCont.up_clock_num==0}}"
+    >
+      <view class='signTipCon signTipCon2'>
+        <view class='state'>参与活动</view>
+        <view class='integral'>您还未打卡分享</view>
+        <view class=' acea-row row-between-wrapper' >
+                <view class='signTipBnt' bindtap='close'>不了</view>
+          <view class='signTipBnt' bindtap="getShareclock_in">立即打卡</view>
+        </view>
+      </view>
+    </view>
+      <!-- 分享按钮 -->
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet" class='pro-wrapper acea-row row-between-wrapper !important' hover-class='none'>
+  <action-sheet-item hover-class='none' class=' acea-row row-between-wrapper !important' style="font-size:24rpx !important;  " hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet">
+    <button open-type="share" class='contact' hover-class='none'>
+      <view class='iconn'></view>
+      <view style="font-size:24rpx">发送给朋友</view>
+    </button>
+       <navigator hover-class='none' bindtap="tiaozhaun"  class='contact' data-url="/pages/user_spread_code/index">  
+    <view class='iconn iconn1'></view>
+      <view style="font-size:24rpx">分享海报</view>
+      </navigator>
+  </action-sheet-item>
+</action-sheet>
+</view>
+<authorize bind:onLoadFun='onLoadFun' isGoIndex='{{isGoIndex}}' iShidden="{{iShidden}}" isAuto="{{isAuto}}"></authorize>

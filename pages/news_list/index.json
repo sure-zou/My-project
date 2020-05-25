@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/index",
+      "tabnav": "/components/tabnav/index",
+    "home": "/components/home/index"
+  }
+}

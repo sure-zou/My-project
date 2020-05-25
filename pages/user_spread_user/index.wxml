@@ -1,0 +1,150 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='my-promotion'>
+ <view class='news acea-row row-between-wrapper'>
+       <view class='pictrue'><image src='/images/gg.png'></image></view>
+       <view class='swiperTxt'>
+            <swiper  autoplay="{{autoplay}}" interval="2500" duration="{{duration}}"  circular="true">
+                    <swiper-item catchtouchmove='catchTouchMove'>
+                        <navigator class='acea-row row-between-wrapper' hover-class='none' url="/pages/tixian_article/index?id=4">
+                            <view class='text acea-row row-between-wrapper'>
+                                <view class='newsTitle line1'>{{withdrawal_notice}}</view>
+                            </view>
+                            <view class='iconfont icon-xiangyou'></view>
+                        </navigator>
+                    </swiper-item>
+              </swiper> 
+       </view>
+</view>
+
+    <view class="my-header">
+         <view class='picTxt acea-row ' style="align-items: center;">
+         <view class='pictrue' data-url='/pages/user_info/index' bindtap='goPages'><image src='{{userInfo.avatar}}'></image></view>
+         <view class='text'>
+            <view class='acea-row row-middle'>
+               <view class='name line1' data-url='/pages/user_info/index' bindtap='goPages'>{{userInfo.uid ? userInfo.nickname : '请点击授权'}}</view>
+               <view data-url='/pages/user_vip/index' class='member acea-row row-middle' wx:if="{{userInfo.vip}}" bindtap='goPages'>
+               <image src='{{userInfo.vip_icon}}'></image>{{userInfo.vip_name}}</view>
+            </view>
+            <view class='id' data-url='/pages/user_info/index' bindtap='goPages' wx:if='{{userInfo.phone}}'>ID:{{userInfo.uid || 0}}<text style="padding-left:.2rem">手机号:{{userInfo.phone}}</text><text class='iconfont icon-bianji1'></text>
+            </view>
+            <!-- <view wx:else data-url='/pages/user_phone/index' bindtap='goPages'><text class="binding">绑定手机号</text></view> -->
+         </view>
+           <navigator class="picTit2" url='/pages/user_spread_money/index?type=4' hover-class="none" style="color:#ffffff;font-size:32rpx;">提现记录</navigator>
+      </view>
+    </view>
+
+    <view class="spread_header ">
+        <view class=" list list2  acea-row   br" style="width:100%;justify-content: flex-end;">
+            <view class="color-tixian" hover-class='none' data-url='/pages/user_gocash/index' bindtap="openSubscribe" >提现</view>
+        </view>
+        <view class="acea-row   row-between-wrapper br "  >
+             <view class=" list bl" >
+                 <view>{{getlist.ly}}</view>
+                 <!-- 累计佣金 -->
+               <view class='num2'>{{userInfo.brokerage_commission}}</view>
+            </view>
+          <view class=" list" data-url='/pages/user_gocash/index'>
+           <!-- <view>可提现佣金</view> -->
+           <view>{{getlist.kys}}</view>
+           <view class='num'>{{userInfo.brokerage_price}}</view>
+        </view>
+        </view> 
+         <view  class="acea-row   row-between-wrapper br">
+            <view class=" list bl">
+             <!-- <view>帮扶金收益</view> -->
+              <view>{{getlist.bs}}</view>
+                <view class='num2'>{{userInfo.brokerage_bonus }}</view>
+            </view>
+          <view class=" list" data-url='/pages/user_gocash/index'>
+            <view>{{getlist.kbs}}</view>
+             <view class='num'>{{userInfo.bonus_price}}</view>
+        </view>
+         </view>  
+          <view class='acea-row    row-between-wrapper br'>
+            <view class=" list bl">
+                <!-- <view>分红收益</view> -->
+                <view>{{getlist.lf}}</view>
+              <view class='num2'>{{userInfo.brokerage_abonus}}</view>
+            </view>
+          <view class=" list" data-url='/pages/user_gocash/index'>
+                <view>{{getlist.kfs}}</view>
+           <view class='num'>{{userInfo.abonus_price}}</view>
+        </view>
+          </view>
+  
+    </view>
+
+    <view class="header" style="display:none">
+        <view class='name acea-row row-center-wrapper'>
+            <view>当前佣金</view>
+            <navigator url='/pages/user_spread_money/index?type=4' hover-class="none" class='record'>提现记录<text class='iconfont icon-xiangyou'></text></navigator>
+        </view>
+        <view class='num'>{{userInfo.brokerage_price}}</view>
+        <view class='profit acea-row row-between-wrapper'>
+            <view class='item'>
+              <view>昨日收益</view>
+              <view class='money'>{{userInfo.yesterDay}}</view>
+            </view>
+            <view class='item'>
+              <view>累积已提</view>
+              <view class='money'>{{userInfo.extractTotalPrice}}</view>
+            </view>
+        </view>
+    </view>
+    <view hover-class='none' data-url='/pages/user_cash/index' bindtap="openSubscribe" class='bnt bg-color' style="display:none">立即提现</view>
+    <view class='list acea-row row-between-wrapper' style="display:none">
+        <navigator  url='/pages/user_spread_code/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
+            <text class='iconfont icon-erweima'></text>
+            <view>邀请好友</view>
+        </navigator>
+         <navigator url='/pages/user_spread_money/index?type=3' hover-class="none" class='item acea-row row-center-wrapper row-column'>
+            <text class='iconfont icon-qiandai'></text>
+            <view>收益明细</view>
+        </navigator>
+        <navigator url='/pages/promoter-list/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
+            <text class='iconfont icon-tongji'></text>
+            <view>我的团队</view>
+        </navigator>
+       
+        <navigator url='/pages/promoter-order/index' hover-class="none" class='item acea-row row-center-wrapper row-column'>
+            <text class='iconfont icon-dingdan'></text>
+            <view>推广人订单</view>
+        </navigator>
+    </view>
+
+    <view class="list-2 ">
+      <navigator  url='/pages/user_spread_code/index' hover-class="none" class='item acea-row row-between-wrapper '>
+            <view class="acea-row  row-between-wrapper">
+              <text class='iconfont icon-erweima'></text>
+              <view>邀请好友</view>
+          </view>
+            <text class='iconfont icon-xiangyou'></text>
+        </navigator>
+         <navigator url='/pages/user_spread_money/index?type=3' hover-class="none" class='item acea-row row-between-wrapper '>
+              <view class="acea-row  row-between-wrapper">
+               <text class='iconfont icon-qiandai'></text>
+               <view>收益明细</view>
+            </view>
+           <text class='iconfont icon-xiangyou'></text>
+        </navigator>
+   <navigator url='/pages/promoter-list/index' hover-class="none" class='item acea-row  row-between-wrapper'>
+          <view class="acea-row  row-between-wrapper">
+             <text class='iconfont icon-tongji'></text>
+            <view>我的粉丝</view>
+          </view>
+            <text class='iconfont icon-xiangyou'></text>
+        </navigator>
+
+         
+           <navigator url='/pages/promoter-order/index' hover-class="none" class='item acea-row row-between-wrapper '>
+             <view class="acea-row  row-between-wrapper">
+                <text class='iconfont icon-dingdan'></text>
+               <view>推广人订单</view>
+            </view>
+          <text class='iconfont icon-xiangyou'></text>
+        </navigator>
+    </view>
+</view>
+<authorize bind:onLoadFun='onLoadFun'></authorize>
+
+

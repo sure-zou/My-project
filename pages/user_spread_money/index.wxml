@@ -1,0 +1,51 @@
+<navbar parameter='{{parameter}}'></navbar>
+<view class='commission-details'>
+    <view class='promoterHeader bg-color'>
+        <view class='headerCon acea-row row-between-wrapper'>
+            <view>
+                <view class='name'>{{name}}</view>
+                <view class='money'>￥<text class='num'>{{recordCount}}</text></view>
+            </view>
+            <view class='iconfont icon-jinbi1'></view>
+        </view>
+    </view>
+      <view class='nav acea-row' wx:if="{{type == 1 ||type == 7 ||type == 8||type == 4  }}">
+      <view class='item {{type==4 ? "on":""}}' data-type='4' bindtap='changeType'>{{getlist.yj}}</view>
+      <view class='item {{type==7 ? "on":""}}' data-type='7' bindtap='changeType'>{{getlist.bfj}}</view>
+      <view class='item {{type==8 ? "on":""}}' data-type='8' bindtap='changeType'>{{getlist.fh}}</view>
+   </view>
+     <view class='nav acea-row' wx:else>
+      <view class='item {{type==3 ? "on":""}}' data-type='3' bindtap='changeType'>{{getlist.yj}}</view>
+      <view class='item {{type==5 ? "on":""}}' data-type='5' bindtap='changeType'>{{getlist.bfj}}</view>
+      <view class='item {{type==6 ? "on":""}}' data-type='6' bindtap='changeType'>{{getlist.fh}}</view>
+   </view>
+  
+    <view class='sign-record'>
+     <block wx:for="{{recordList}}" wx:key='index'>
+      <view class='list'>
+          <view class='item'>
+            <view class='data'>{{item.time}}</view>
+            
+            <view class='listn'>
+              <block wx:for="{{item.list}}" wx:for-item='child' wx:key='index'>
+                <view class='itemn acea-row row-between-wrapper'>
+                  <view class="name2">
+                    <view class='name line1'wx:if="{{type == 2 ||type == 3 ||type == 5||type == 6  }}">
+                    <image src=" {{child.order_detail.user.avatar}}" class="img"></image>
+                    <text class="text">{{child.order_detail.user.nickname}}</text>
+                    </view>
+                    <view class='name line1'><text class="font">明细:</text>{{child.title}}</view>
+                       <view class='name line1'wx:if="{{type == 2 ||type == 3 ||type == 5||type == 6  }}"><text class="font">订单号:</text>{{child.order_detail.order_id}}</view>
+                    <view wx:if="{{type == 2 ||type == 3 ||type == 5||type == 6  }}"><text class="font">获得时间</text>:{{child.add_time}}</view>
+                       <view wx:if="{{type == 1 ||type == 4 ||type == 7||type == 8  }}"><text class="font">提现时间</text>:{{child.add_time}}</view>
+                  </view>
+                  <view class='num font-color' wx:if="{{child.pm == 1}}">+{{child.number}}</view>
+                  <view class='num'  wx:else>-{{child.number}}</view>
+                </view>
+              </block> 
+            </view>
+          </view>
+      </view>
+     </block> 
+    </view>
+</view>

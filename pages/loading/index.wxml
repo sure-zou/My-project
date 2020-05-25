@@ -1,0 +1,5 @@
+<view class="index_img"  >
+<!-- ishideen="{{ishideen}}" -->
+ <image src="{{startover}}" />
+</view>
+<view bindtap="go_index" class="go_index">跳过:{{djs_time}}</view>

@@ -1,0 +1,72 @@
+page{background-color:#fff!important;}
+.cash-withdrawal .nav{height:80rpx;box-shadow:0 10rpx 10rpx #f8f8f8;line-height: 80rpx;padding: 0 30rpx;margin-top: 80rpx;
+}
+.cash-withdrawal .nav .item{font-size:26rpx;flex:1;text-align:center;}
+.cash-withdrawal .nav .item~.item{border-left:1px solid #f0f0f0;}
+.cash-withdrawal .nav .item .iconfont{width:40rpx;height:40rpx;border-radius:50%;border:2rpx solid #e93323;text-align:center;line-height:37rpx;font-size:22rpx;box-sizing:border-box;margin-top: 20rpx;margin-right: 20rpx;
+}
+.cash-withdrawal .nav .item .iconfont.on{background-color:#e93323;color:#fff;border-color:#e93323;}
+.cash-withdrawal .nav .item .line{width:2rpx;height:20rpx;margin:0 auto;transition:height 0.3s;display: none}
+/* .cash-withdrawal .nav .item .line.on{height:39rpx;} */
+.cash-withdrawal .wrapper .list{padding:0 30rpx;}
+.cash-withdrawal .wrapper .list .item{border-bottom:1rpx solid #eee;height:107rpx;font-size:30rpx;color:#333;}
+.cash-withdrawal .wrapper .list .item .name{width:130rpx;}
+.cash-withdrawal .wrapper .list .item .input{width:505rpx;}
+.cash-withdrawal .wrapper .list .item .input .placeholder{color:#bbb;}
+.cash-withdrawal .wrapper .list .tip{font-size:26rpx;color:#999;margin-top:25rpx;}
+.cash-withdrawal .wrapper .list .bnt{font-size:32rpx;color:#fff;width:690rpx;height:90rpx;text-align:center;border-radius:50rpx;line-height:90rpx;margin:64rpx auto;}
+.cash-withdrawal .wrapper .list .tip2{font-size:26rpx;color:#999;text-align:center;margin:44rpx 0 20rpx 0;}
+.cash-withdrawal .wrapper .list .value{height:135rpx;line-height:135rpx;border-bottom:1rpx solid #eee;width:690rpx;margin:0 auto;}
+.cash-withdrawal .wrapper .list .value input{font-size:80rpx;color:#282828;height:135rpx;text-align:center;}
+.cash-withdrawal .wrapper .list .value .placeholder2{color:#bbb;}
+.nav2{background-color:#fff;height:90rpx;width:100%;line-height:90rpx;}
+.nav2 .item{flex:1;text-align:center;font-size:30rpx;color:#282828;}
+ .nav2 .item.on{color:#e93323;border-bottom:5rpx solid #e93323;}
+ .news{
+height: 77rpx;
+border-top: 1rpx solid #f4f4f4;
+padding: 0 30rpx;
+box-shadow: 0 10rpx 30rpx #f5f5f5;
+background: #ffffff;
+margin: 0 auto;
+margin-top: .38rem;
+position: fixed;
+top: 130rpx;
+width: 100%;
+}
+ .news .pictrue{width:40rpx;height:30rpx;border-right:1rpx solid #ddd;padding-right:23rpx;box-sizing: content-box;}
+.news .pictrue image{width:100%;height:100%;}
+.news .swiperTxt{width:87%;height:100%;line-height:77rpx;overflow:hidden;}
+ .news .swiperTxt .text{width:100%;}
+.news .swiperTxt .text .label{font-size:20rpx;color:#ff4c48;width:64rpx;height:30rpx;border-radius:40rpx;text-align:center;line-height:28rpx;border:2rpx solid #ff4947;}
+ .news .swiperTxt .text .newsTitle{width:100%;font-size:24rpx;color:#666;}
+ .news .swiperTxt .iconfont{font-size:28rpx;color:#888;}
+ .news .swiperTxt swiper{height:100%;}
+  .item2 {
+    background: #ffffff;
+    padding: 3%;
+    margin-top: 30rpx;
+    font-size: 30rpx;
+  color: #898989;
+  box-shadow: 0 0 10rpx  #dfdfdf;
+  }
+ .item2 image{
+width: 45rpx;
+height: 45rpx;
+ }
+ .item2 .num2{
+   color: #434343;
+   align-content: center;
+   align-items: center;
+   font-weight: 700;
+ }
+  .item2 .num2 text{
+    padding-left:.5rem;padding-top:.2rem;
+  }
+    .item2 .num{
+    margin-top: .2rem;
+  }
+  
+  .item2 .icon-jiantou{
+    font-size:28rpx;
+  }
